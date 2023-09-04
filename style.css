@@ -29,27 +29,31 @@ body {
     border:none;
     color:blue;
     background-color:white;
-    border:2px solid blueviolet;
+    border:none;
     border-radius:5px;
     width:100px;
     box-sizing:2px 1px 4px 10px black;
     text-decoration:none;
-    align-content:center;
+    align-items:center;
     
 }
-
+.clear:hover {
+    transition:.5s;
+    color:white;
+    background-color:blue;
+}
 .display {
+    display:flex;
+    justify-content:flex-end;
+    text-align:center;
+    word-break:break-all;
     background-color:gray;
     color:1;
     height:40px;
     width:200px;
     margin-bottom:10px;
     border-radius:10px;
-    display:flex;
-    justify-content:flex-end;
     color: white;
-    flex-wrap: wrap;
-    text-align:center;
 }
 .numbers  {
     color:white;
@@ -63,6 +67,7 @@ body {
 
 }
 .numbers:hover {
+    transition: 0.5s;;
     color:blue;
     background-color:white;
 
