@@ -20,6 +20,9 @@ const operate = function(a, b) {
     return divide(a,b);
 }
 
+const resetPage = function() {
+    location.reload();
+}
 
 const display = document.querySelector('.display');
 const numbers = document.querySelectorAll('.numbers');
