@@ -50,11 +50,10 @@ body {
     background-color:gray;
     color:1;
     height:40px;
-    width:200px;
-    margin-bottom:10px;
     border-radius:10px;
+    margin-bottom:10px;
     color: white;
-    padding:3px 2px;
+    padding:10px 3px;
 }
 .numbers  {
     color:white;
@@ -83,7 +82,7 @@ body {
 }
 
 
-#equal {
+#result {
     background-color:green;
     color:white;
     justify-self:flex-end;
