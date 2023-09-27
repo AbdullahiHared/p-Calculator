@@ -5,7 +5,7 @@ const subtract = function (a, b) {
   return a - b;
 };
 const multiply = function (a, b) {
-  a * b;
+  return a * b;
 };
 const divide = function (a, b) {
   return a / b;
@@ -37,42 +37,52 @@ numbers.forEach((number) => {
   });
 });
 
-
 // add event listener to every operator
 operators.forEach((operator) => {
   operator.addEventListener("click", () => {
     changeNum(operator);
+    console.log(operator.textContent);
   });
 });
 
 
 
+// result
 equals.addEventListener("click", function () {
-  
-const splitScreen = display.textContent.split("+");
-firstNumber =  Number(splitScreen[0]);
-secondNUmber =  Number(splitScreen[1]);
-display.textContent = firstNumber + secondNUmber;
-})
+  let splitScreen;
+  let result;
+  // add
+  if (display.textContent.includes("+")) {
+    splitScreen = display.textContent.split("+");
+    firstNumber = Number(splitScreen[0]);
+    secondNUmber = Number(splitScreen[1]);
+    result = add(firstNumber, secondNUmber);
+    display.textContent = result;
+    // subtract
+  } else if (display.textContent.includes("-")) {
+    splitScreen = display.textContent.split("-");
+    firstNumber = Number(splitScreen[0]);
+    secondNUmber = Number(splitScreen[1]);
+    result = subtract(firstNumber, secondNUmber);
+    display.textContent = result;
+    // multiply
+  } else if (display.textContent.includes("*")) {
+    splitScreen = display.textContent.split("*");
+    firstNumber = Number(splitScreen[0]);
+    secondNUmber = Number(splitScreen[1]);
+    result = multiply(firstNumber, secondNUmber);
+    display.textContent = result;
+    // divide
+  } else if (display.textContent.includes("/")) {
+    splitScreen = display.textContent.split("/");
+    firstNumber = Number(splitScreen[0]);
+    secondNUmber = Number(splitScreen[1]);
+    result = divide(firstNumber, secondNUmber);
+    display.textContent = result;
+  }
+});  
 
-
-
-
-
-
-
-
-
-// const store = function (firstNumber, secondNumber) {
-//   const splitScreen = display.textContent.split("+");
-
-//   firstNumber = parseInt(splitScreen[0]);
-//   secondNumber = parseInt(splitScreen[1]);
-
-//   changeNum(result);
-// };
-
-// // reset
+// reset
 const resetPage = function () {
   display.textContent = "";
 };

@@ -4,7 +4,7 @@ body {
     box-sizing:border-box;
 }
 .mainContainer {
-  border:2px solid blue;
+  border:2px solid rgb(214, 155, 39);
   display:flex;
   flex-direction:column;
   justify-content:center;
@@ -45,15 +45,16 @@ body {
 .display {
     display:flex;
     justify-content:flex-end;
-    text-align:center;
+    align-items:center;
     word-break:break-all;
     background-color:gray;
-    color:1;
     height:40px;
     border-radius:10px;
     margin-bottom:10px;
-    color: white;
+    color:black;
     padding:10px 3px;
+    gap:30px;
+    border:2px solid rgb(243, 206, 133);
 }
 .numbers  {
     color:white;
