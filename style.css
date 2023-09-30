@@ -65,6 +65,7 @@ body {
     cursor: pointer;
     padding:3px 6px;
     font-weight:bold;
+    gap:20px;
 
 }
 .numbers:hover {
@@ -106,4 +107,5 @@ body {
     font-size:20px;
     font-weight:bolder;
     text-align:center;
+    gap:20px;
 }

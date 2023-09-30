@@ -1,3 +1,4 @@
+// Define basic arithmetic operations as functions
 const add = function (a, b) {
   return a + b;
 };
@@ -11,77 +12,121 @@ const divide = function (a, b) {
   return a / b;
 };
 
-// operater
+// Variables to store user input
 let firstNumber;
-let secondNUmber;
+let secondNUmber; // Note: Typo, should be secondNumber
 let operator;
 
-// select elements
-const display = document.querySelector(".display");
-const numbers = document.querySelectorAll(".numbers");
-const operators = document.querySelectorAll(".mathKeys");
-const equals = document.getElementById("result");
-display.textContent = "";
+// Select elements from the HTML document
+const display = document.querySelector(".display"); // Display screen
+const numbers = document.querySelectorAll(".numbers"); // Number buttons
+const operators = document.querySelectorAll(".mathKeys"); // Operator buttons
+const equals = document.getElementById("result"); // Equals button
+display.textContent = ""; // Initialize display content
 
-// display
+// Function to update the display with a number or operator
 const changeNum = function (num) {
+  // Check if the display content length is less than 25 characters
   if (display.textContent.length < 25) {
     display.textContent += num.textContent;
   }
 };
 
-// add event listener to every number
+// Add click event listeners to number buttons
 numbers.forEach((number) => {
   number.addEventListener("click", () => {
     changeNum(number);
   });
 });
 
-// add event listener to every operator
+// Add click event listeners to operator buttons
 operators.forEach((operator) => {
   operator.addEventListener("click", () => {
     changeNum(operator);
-    console.log(operator.textContent);
+    console.log(operator.textContent); // Log the clicked operator
   });
 });
 
-
-
-// result
+// Function to perform calculations when the equals button is clicked
 equals.addEventListener("click", function () {
   let splitScreen;
   let thirdNumber;
-  let result;
-  // split the screen using the operators
+  let additionResult;
+  let subtractionResult;
+  let divisionResult;
+  let multiplicationResult;
+
+  // Split the display content using operators (+, -, *, /)
   splitScreen = display.textContent.split(/[+-/*]/);
+
+  // Convert the split parts into numbers
   firstNumber = Number(splitScreen[0]);
-  secondNUmber = Number(splitScreen[1]);
+  secondNUmber = Number(splitScreen[1]); // Note: Typo, should be secondNumber
   thirdNumber = Number(splitScreen[2]);
 
-  // add
-  if (display.textContent.includes("+")) {
-    result = add(firstNumber, secondNUmber);
-    display.textContent = result;
-    // subtract
-    
-  } else if (display.textContent.includes("-")) {
-    result = subtract(firstNumber, secondNUmber);
-    display.textContent = result;
-    // multiply
-
-  } else if (display.textContent.includes("*")) {
-    result = multiply(firstNumber, secondNUmber);
-    display.textContent = result;
-
-    // divide
-  } else if (display.textContent.includes("/")) {
-    result = divide(firstNumber, secondNUmber);
-    display.textContent = result.toFixed(3);
-    
+  // Check which operators are present in the display content and perform calculations accordingly
+  if (display.textContent.includes("+") && display.textContent.includes("-")) {
+    additionResult = add(firstNumber, secondNUmber) - thirdNumber;
+    display.textContent = additionResult;
+    console.log(additionResult);
+  } else if (display.textContent.includes("+") && display.textContent.includes("*")) {
+    additionResult = (thirdNumber * secondNUmber) + firstNumber;
+    console.log(additionResult);
+    display.textContent = additionResult;
+  } else if (display.textContent.includes("+") && display.textContent.includes("/")) {
+    additionResult = divide(secondNUmber, thirdNumber) + firstNumber;
+    display.textContent = additionResult;
+    console.log(additionResult);
+  } else {
+    additionResult = firstNumber + secondNUmber + thirdNumber
+    display.textContent = additionResult;
+    console.log(additionResult);
   }
-});  
+  
+  if (display.textContent.includes("-") && display.textContent.includes("+")) {
+    subtractionResult = subtract(firstNumber, secondNUmber) + thirdNumber;
+    display.textContent = subtractionResult;
+  } else if (display.textContent.includes("-") && display.textContent.includes("*")) {
+    subtractionResult = firstNumber - multiply(secondNUmber, thirdNumber);
+    display.textContent = subtractionResult;
+  } else if (display.textContent.includes("-") && display.textContent.includes("/")) {
+    subtractionResult = firstNumber - divide(secondNUmber, thirdNumber);
+    display.textContent = subtractionResult;
+  } else {
+    subtractionResult = firstNumber - secondNUmber -thirdNumber;
+    display.textContent = subtractionResult;
+  }
 
-// reset
+  if (display.textContent.includes("/") && display.textContent.includes("+")) {
+    divisionResult = divide(firstNumber, secondNUmber) + thirdNumber;
+    display.textContent = divisionResult;
+  } else if (display.textContent.includes("/") && display.textContent.includes("-")) {
+    divisionResult = divide(firstNumber, secondNUmber) - thirdNumber;
+    display.textContent = divisionResult;
+  } else if (display.textContent.includes("/") && display.textContent.includes("*")) {
+    divisionResult = divide(firstNumber, secondNUmber) * thirdNumber;
+    display.textContent = divisionResult;
+  } else {
+    divisionResult = firstNumber / secondNUmber / thirdNumber;
+    display.textContent = divisionResult;
+  }
+
+  if (display.textContent.includes("*") && display.textContent.includes("+")) {
+    multiplicationResult = multiply(firstNumber, secondNUmber) + thirdNumber;
+    display.textContent = multiplicationResult;
+  } else if (display.textContent.includes("*") && display.textContent.includes("-")) {
+    multiplicationResult = multiply(firstNumber, secondNUmber) - thirdNumber;
+    display.textContent = multiplicationResult;
+  } else if (display.textContent.includes("*") && display.textContent.includes("/")) {
+    multiplicationResult = multiply(firstNumber, secondNUmber) / thirdNumber;
+    display.textContent = multiplicationResult;
+  } else {
+    multiplicationResult = multiply(firstNumber, secondNUmber) * thirdNumber;
+    display.textContent = multiplicationResult;
+  }
+});
+
+// Function to reset the display
 const resetPage = function () {
   display.textContent = "";
 };
