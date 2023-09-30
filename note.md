@@ -4,4 +4,4 @@
 # from Talib abdirahman.¨
 # The first number is = the value of the number before the operator and 
 # The second one is value of the numbers after the operator.
-
+# 

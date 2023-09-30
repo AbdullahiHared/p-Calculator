@@ -53,12 +53,12 @@ body {
     margin-bottom:10px;
     color:black;
     padding:10px 3px;
-    gap:30px;
+   gap:50px;
     border:2px solid rgb(243, 206, 133);
 }
 .numbers  {
     color:white;
-    background-color:rgb(44, 43, 43);
+    background-color:black;
     justify-self:flex-end;
     border-radius:10px;
     box-shadow:.1px .1px 10px rgb(77, 74, 74);
@@ -76,7 +76,7 @@ body {
 
 #decimal {
     width:8px;
-    font-weight:bolder;
+    font-weight:600;
     text-align:center;
     height:16px;
     padding-bottom:7px;

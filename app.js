@@ -50,35 +50,34 @@ operators.forEach((operator) => {
 // result
 equals.addEventListener("click", function () {
   let splitScreen;
+  let thirdNumber;
   let result;
+  // split the screen using the operators
+  splitScreen = display.textContent.split(/[+-/*]/);
+  firstNumber = Number(splitScreen[0]);
+  secondNUmber = Number(splitScreen[1]);
+  thirdNumber = Number(splitScreen[2]);
+
   // add
   if (display.textContent.includes("+")) {
-    splitScreen = display.textContent.split("+");
-    firstNumber = Number(splitScreen[0]);
-    secondNUmber = Number(splitScreen[1]);
     result = add(firstNumber, secondNUmber);
     display.textContent = result;
     // subtract
+    
   } else if (display.textContent.includes("-")) {
-    splitScreen = display.textContent.split("-");
-    firstNumber = Number(splitScreen[0]);
-    secondNUmber = Number(splitScreen[1]);
     result = subtract(firstNumber, secondNUmber);
     display.textContent = result;
     // multiply
+
   } else if (display.textContent.includes("*")) {
-    splitScreen = display.textContent.split("*");
-    firstNumber = Number(splitScreen[0]);
-    secondNUmber = Number(splitScreen[1]);
     result = multiply(firstNumber, secondNUmber);
     display.textContent = result;
+
     // divide
   } else if (display.textContent.includes("/")) {
-    splitScreen = display.textContent.split("/");
-    firstNumber = Number(splitScreen[0]);
-    secondNUmber = Number(splitScreen[1]);
     result = divide(firstNumber, secondNUmber);
-    display.textContent = result;
+    display.textContent = result.toFixed(3);
+    
   }
 });  
 
