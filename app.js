@@ -43,79 +43,119 @@ operators.forEach((operator) => {
   });
 });
 
-  function operate () {
-    // Variables to store user input
-    let firstNumber;
-    let secondNumber;
-    let splitScreen;
-    let thirdNumber;
-    
+ // Variables to store user input
+ let firstNumber;
+ let secondNumber;
+ let splitScreen;
+ let thirdNumber;
+ let result;
+ 
 
-    // Split the display content using operators (+, -, *, /)
-    splitScreen = display.textContent.split(/[+-/*]/);
+ // Split the display content using operators (+, -, *, /)
+ splitScreen = display.textContent.split(/[+-/*]/);
 
-    // Convert the split parts into numbers
-    firstNumber = Number(splitScreen[0]);
-    secondNumber = Number(splitScreen[1]); // Note: Typo, should be secondNumber
-    thirdNumber = Number(splitScreen[2]);
+ // Convert the split parts into numbers
+ firstNumber = Number(splitScreen[0]);
+ secondNumber = Number(splitScreen[1]); 
+ thirdNumber = Number(splitScreen[2]);
+  
 
     // Check which operators are present in the display content and perform calculations accordingly
-    if (display.textContent.includes("+") && display.textContent.includes("-")) {
-      result = add(firstNumber, secondNumber) - thirdNumber || subtract(firstNumber, secondNumber) + thirdNumber;
-      display.textContent = result;
-      console.log(result);
-    } else if (display.textContent.includes("+") && display.textContent.includes("*")) {
-      result =   firstNumber + (secondNumber * thirdNumber) ||(firstNumber * secondNumber) + thirdNumber;
-      display.textContent = result;
-      console.log(result);
-    } else if (display.textContent.includes("+") && display.textContent.includes("/")) {
-      result = firstNumber + (secondNumber / thirdNumber) || (firstNumber / secondNumber) + thirdNumber;
-      display.textContent = result;
-      console.log(result);
-    } else if (display.textContent.includes("+")) {
-      result = firstNumber + secondNumber + thirdNumber || firstNumber + secondNumber;
-      display.textContent = result;
-      console.log(result);
-    }
 
-    if (display.textContent.includes("-") && display.textContent.includes("*")) {
-      result = firstNumber - (secondNumber * thirdNumber) || (firstNumber * secondNumber) - thirdNumber;
-      console.log(result);
-      display.textContent = result;
-    } else if (display.textContent.includes("-") && display.textContent.includes("/")) {
-      result = firstNumber - (firstNumber / secondNumber) || (firstNumber / secondNumber) - thirdNumber;
-      console.log(result);
-    } else if (display.textContent.includes("-")) {
-      result = firstNumber - secondNumber - thirdNumber || firstNumber - secondNumber;
-      console.log(result);
-    }
-
+  function division() {
     if (display.textContent.includes("/") && display.textContent.includes("*")) {
-      result = thirdNumber *  (firstNumber / secondNumber) || firstNumber * (secondNumber / thirdNumber);
+      result = divide(firstNumber, secondNumber)  * thirdNumber || firstNumber * divide(secondNumber, thirdNumber)
       display.textContent = result;
       console.log(result);
-
-    } else if (display.textContent.includes("/")) {
-      result = firstNumber / secondNumber / thirdNumber || firstNumber / secondNumber;
+    } else if (display.textContent.includes("/") &&  display.textContent.includes("+")) {
+      result = divide(firstNumber, secondNumber) + thirdNumber || firstNumber + divide(secondNumber, thirdNumber);
+      display.textContent = result;
       console.log(result);
+    } else if (display.textContent.includes("/")&&  display.textContent.includes("-")) {
+      result = divide(firstNumber, secondNumber) - thirdNumber || firstNumber - divide(secondNumber, thirdNumber);
+      display.textContent = result;
+      console.log(result);
+    } else if ( display.textContent.includes("/")) {
+      result = firstNumber / second / thirdNumber || firstNumber / secondNumber;
       display.textContent = result;
     }
-
-    if (display.textContent.includes("*")) {
-      result = firstNumber * secondNumber * thirdNumber || firstNumber * secondNumber;
-      console.log(result);
-      display.textContent = result;
-    } 
-
-  
   }
+
+  function multiplication() {
+    if (display.textContent.includes("/") && display.textContent.includes("*")) {
+      result = divide(firstNumber, secondNumber)  * thirdNumber || firstNumber * divide(secondNumber, thirdNumber)
+      display.textContent = result;
+      console.log(result);
+    } else if (display.textContent.includes("*") &&  display.textContent.includes("+")) {
+      result = multiplication(firstNumber, secondNumber) + thirdNumber || multiply(secondNumber, thirdNumber) + firstNumber;
+      display.textContent = result;
+      console.log(result);
+    } else if (display.textContent.includes("*")&&  display.textContent.includes("-")) {
+      result = multiply(firstNumber, secondNumber) - thirdNumber || firstNumber - multiply(secondNumber, thirdNumber);
+      display.textContent = result;
+      console.log(result);
+    } else if ( display.textContent.includes("*")) {
+      result = firstNumber * second * thirdNumber || firstNumber * secondNumber;
+      display.textContent = result;
+    }
+  }
+
+  function addition () {
+     if (display.textContent.includes("+") && display.textContent.includes("*")) {
+      result = multiply(firstNumber, secondNumber)  + thirdNumber || firstNumber + multiply(secondNumber, thirdNumber)
+      display.textContent = result;
+      console.log(result);
+    } else if (display.textContent.includes("/") &&  display.textContent.includes("+")) {
+      result = divide(firstNumber, secondNumber) + thirdNumber ||divide(secondNumber, thirdNumber) + firstNumber;
+      display.textContent = result;
+      console.log(result);
+    } else if (display.textContent.includes("+")&&  display.textContent.includes("-")) {
+      result = add(firstNumber, secondNumber) - thirdNumber || firstNumber - add(secondNumber, thirdNumber);
+      display.textContent = result;
+      console.log(result);
+    } else if ( display.textContent.includes("/")) {
+      result = firstNumber+ second + thirdNumber || firstNumber + secondNumber;
+      display.textContent = result;
+    }
+  }
+
+  function subtraction () {
+    if (display.textContent.includes("/") && display.textContent.includes("-")) {
+      result = divide(firstNumber, secondNumber)  - thirdNumber || firstNumber - divide(secondNumber, thirdNumber)
+      display.textContent = result;
+      console.log(result);
+    } else if (display.textContent.includes("-") &&  display.textContent.includes("+")) {
+      result = add(firstNumber, secondNumber) - thirdNumber || firstNumber - add(secondNumber, thirdNumber);
+      display.textContent = result;
+      console.log(result);
+    } else if (display.textContent.includes("*")&&  display.textContent.includes("-")) {
+      result = multiply(firstNumber, secondNumber) - thirdNumber || firstNumber - multiply(secondNumber, thirdNumber);
+      display.textContent = result;
+      console.log(result);
+    } else if ( display.textContent.includes("/")) {
+      result = firstNumber - second - thirdNumber || firstNumber - secondNumber;
+      display.textContent = result;
+    }
+  }
+
 
 // Function to perform calculations when the equals button is clicked
 equals.addEventListener("click", function () {
-  operate();
+ switch (splitScreen) {
+  case "/" : division();
+  break;
+  case "*" : multiplication();
+  break;
+  case "+": addition();
+  break;
+  case "-": subtraction();
+  break;
+  default: console.log("uncompleted task");
+ }
 });
 
 // Function to reset the display
 const resetPage = function () {
   display.textContent = "";
+  console.clear();
 };
