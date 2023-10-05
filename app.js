@@ -95,7 +95,7 @@ operators.forEach((operator) => {
       display.textContent = result;
       console.log(result);
     } else if ( display.textContent.includes("*")) {
-      result = firstNumber * second * thirdNumber || firstNumber * secondNumber;
+      result = firstNumber * secondNumber * thirdNumber || firstNumber * secondNumber;
       display.textContent = result;
     }
   }
@@ -141,18 +141,42 @@ operators.forEach((operator) => {
 
 // Function to perform calculations when the equals button is clicked
 equals.addEventListener("click", function () {
- switch (splitScreen) {
-  case "/" : division();
-  break;
-  case "*" : multiplication();
-  break;
-  case "+": addition();
-  break;
-  case "-": subtraction();
-  break;
-  default: console.log("uncompleted task");
+ let operator;
+
+ if (display.textContent.includes("/")) {
+  operator = "/";
+ } else if (display.textContent.includes("*")) {
+  operator = "*";
+ } else if (display.textContent.includes("+")) {
+  operator = "+";
+ } else if (display.textContent.includes("-")) {
+  operator = "-";
+ } else {
+  console.log("no operator found");
  }
+
+ splitScreen = display.textContent.split(/[+-/*]/);
+
+ switch (operator) {
+  case "/":
+    division();
+    break;
+  case "*":
+    multiplication();
+    break;
+  case "+":
+    addition();
+    break;
+  case "-":
+    subtraction();
+    break;
+  default:
+    console.log("Invalid operator");
+}
 });
+
+
+
 
 // Function to reset the display
 const resetPage = function () {
