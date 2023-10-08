@@ -1,111 +1,82 @@
-body {
+* {
     padding:0;
     margin:0;
-    box-sizing:border-box;
+    box-sizing: border-box;
 }
-.mainContainer {
-  border:2px solid rgb(214, 155, 39);
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  width:200px;
-  height:200px;
-  margin-left:36%;
-  border-radius:30px;
-  padding: 10px 10px;
-  margin-top:20px;
-  background-color:black;
+
+body {
+    font-family: "system-ui", sans-serif;
+    font-weight: 200;
+    color: white;
 }
-.firstRow, .secondRow, .thirdRow, .fourthRow {
-    display:flex;
-    flex-direction:row;
-    align-items:center;
-    gap:29px;
-    margin-bottom:10px;
+.main-container {
+    display: flex;
+    flex-direction: column;
+
+    width: 13vw;
+    margin: 10vh;
+    border-radius: 5px;
+
+    background-color: rgba(53, 57, 60);
+    text-align: center;
 }
-.clear {
-    display:flex;
-    justify-content:center;
-    border:none;
-    color:blue;
-    background-color:white;
-    border:none;
-    border-radius:5px;
-    width:100px;
-    box-sizing:2px 1px 4px 10px black;
-    text-decoration:none;
-    align-items:center;
-    
+
+#display {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+
+    gap: 5px;
+    font-size: 1.25rem;
+    padding: 5px;
+    height: 8vh;
+    border-radius: 5px 5px 0 0;
+
+    background-color: grey;
 }
-.clear:hover {
-    transition:.5s;
-    color:white;
-    background-color:blue;
+
+.top-display {
+    font-size: 1rem;
+    padding-bottom: 5px;
 }
-.display {
-    display:flex;
-    justify-content:flex-end;
-    align-items:center;
-    word-break:break-all;
-    background-color:gray;
-    height:40px;
-    border-radius:10px;
-    margin-bottom:10px;
-    color:black;
-    padding:10px 3px;
-   gap:50px;
-    border:2px solid rgb(243, 206, 133);
+
+.controls {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 5px;
+
+    padding: 10px;
 }
-.numbers  {
-    color:white;
-    background-color:black;
-    justify-self:flex-end;
-    border-radius:10px;
-    box-shadow:.1px .1px 10px rgb(77, 74, 74);
+
+.controls > * {
+    background: grey;
+    padding: 5px;
+}
+
+.controls > *:hover {
+    transition: 0.1s;
+    opacity: 0.9;
     cursor: pointer;
-    padding:3px 6px;
-    font-weight:bold;
-    gap:20px;
-
-}
-.numbers:hover {
-    transition: 0.5s;;
-    color:blue;
-    background-color:white;
-
 }
 
-#decimal {
-    width:8px;
-    font-weight:600;
-    text-align:center;
-    height:16px;
-    padding-bottom:7px;
+.controls > *:active {
+    box-shadow: 0 2px 5px black;
 }
 
+button {
+    all: unset;
+}
+
+#clear {
+    background: rgba(255, 0, 0, 0.4);
+}
+#clear:active {
+    background: rgba(0, 128, 0, 0.4);
+}
 
 #result {
-    background-color:green;
-    color:white;
-    justify-self:flex-end;
-    border-radius:10px;
-    box-shadow:.4px 1.5px 5px black;
-    cursor: pointer;
-    padding:3px 6px;
-    font-weight:bold;
+    background: dimgray;
+}
 
-}
-.mathKeys {
-    color:white;
-    background-color:rgb(44, 43, 43);
-    justify-self:center;
-    border-radius:10px;
-    box-shadow:.1px .1px 10px rgb(77, 74, 74);
-    cursor: pointer;
-    width:100px;
-    height:25px;
-    font-size:20px;
-    font-weight:bolder;
-    text-align:center;
-    gap:20px;
-}
+

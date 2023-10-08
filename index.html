@@ -5,36 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Calculator</title>
     <link rel="stylesheet" href="style.css" />
+    <script src="app.js" defer></script>
   </head>
   <body>
-    <div class="mainContainer">
-      <span class="display"></span>
-      <div class="firstRow">
-        <div class="numbers" id="seven">7</div>
-        <div class="numbers" id="eight">8</div>
-        <div class="numbers" id="nine">9</div>
-        <a href="#" class="clear" onclick="resetPage()">Clear</a>
+    <div class="main-container">
+      <div id="display">
+        <div class="top-display">s</div>
+        <div class="bottom-display">s</div>
       </div>
-      <div class="secondRow">
-        <div class="numbers" id="four">4</div>
-        <div class="numbers" id="five">5</div>
-        <div class="numbers" id="six">6</div>
-        <div class="mathKeys" id="multiply">*</div>
-        <div class="mathKeys" id="divide">/</div>
-      </div>
-      <div class="thirdRow">
-        <div class="numbers" id="one">1</div>
-        <div class="numbers" id="two">2</div>
-        <div class="numbers" id="three">3</div>
-        <div class="mathKeys" id="add">+</div>
-        <div class="mathKeys" id="subtract">-</div>
-      </div>
-      <div class="fourthRow">
-        <div class="numbers" id="zero">0</div>
-        <div class="numbers" id="decimal">.</div>
+      <div class="controls">
+        <div class="numbers">1</div>
+        <div class="numbers">2</div>
+        <div class="numbers">3</div>
+        <button id="clear" >C</button>
+        <div class="numbers">4</div>
+        <div class="numbers">5</div>
+        <div class="numbers">6</div>
+        <div class="operators">+</div>
+        <div class="numbers">7</div>
+        <div class="numbers">8</div>
+        <div class="numbers">9</div>
+        <div class="operators">-</div>
+        <div class="numbers">0</div>
+        <div class="operators">×</div>
+        <div class="operators">÷</div>
         <div id="result">=</div>
       </div>
     </div>
-    <script src="app.js"></script>
   </body>
 </html>

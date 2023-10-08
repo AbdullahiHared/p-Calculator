@@ -1,4 +1,3 @@
-// Define basic arithmetic operations as functions
 const add = function (a, b) {
   return a + b;
 };
