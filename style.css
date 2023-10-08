@@ -37,8 +37,9 @@ body {
 }
 
 .top-display {
+    position: absolute;
     font-size: 1rem;
-    padding-bottom: 5px;
+    padding-bottom: 30px;
 }
 
 .controls {
