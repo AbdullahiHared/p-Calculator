@@ -131,11 +131,15 @@ function compute() {
 
     if (operatorRuleCheck) {
         const computed = pairComputation(firstNumber, operator, secondNumber)
-        equation.splice(operatorIndex - 1, operatorIndex + 2, computed)
+        spliceExpression(operatorIndex, computed)
     }else {
         const computed = pairComputation(firstNumber, operator, secondNumber)
-        equation.splice(operatorIndex - 1, operatorIndex + 2, computed)
+        spliceExpression(operatorIndex, computed)
     }
+}
+
+function spliceExpression(operatorIndex, computed) {
+    equation.splice(operatorIndex - 1, operatorIndex + 2, computed)
 }
 
 function getRuleIndex() {
