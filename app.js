@@ -103,8 +103,9 @@ function displayResult() {
 }
 
 function calculate() {
-    console.log(equation)
-    compute()
+    while (equation.length !== 1) {
+        compute()
+    }
     return equation[0]
 }
 
@@ -123,23 +124,17 @@ function pairComputation(firstNumber, operator, secondNumber) {
 
 
 function compute() {
-    while(equation.length !== 1) {
-        let operatorIndex = getRuleIndex()
-        let firstNumber = Number(equation[operatorIndex - 1])
-        let operator =  equation[operatorIndex]
-        let secondNumber = Number(equation[operatorIndex + 1])
+    let operatorIndex = getRuleIndex()
+    let firstNumber = Number(equation[operatorIndex - 1])
+    let operator =  equation[operatorIndex]
+    let secondNumber = Number(equation[operatorIndex + 1])
 
-        if (operatorRuleCheck) {
-            const computed = pairComputation(firstNumber, operator, secondNumber)
-            console.log(computed)
-            equation.splice(operatorIndex - 1, operatorIndex + 2, computed)
-        }else {
-            const computed = pairComputation(firstNumber, operator, secondNumber)
-            console.log(computed)
-            equation.splice(operatorIndex - 1, operatorIndex + 2, computed)
-        }
-
-        console.log(equation)
+    if (operatorRuleCheck) {
+        const computed = pairComputation(firstNumber, operator, secondNumber)
+        equation.splice(operatorIndex - 1, operatorIndex + 2, computed)
+    }else {
+        const computed = pairComputation(firstNumber, operator, secondNumber)
+        equation.splice(operatorIndex - 1, operatorIndex + 2, computed)
     }
 }
 
