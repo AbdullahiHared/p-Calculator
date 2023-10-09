@@ -22,8 +22,6 @@ let equation = []
 let currentNumber = ""
 let operatorCount = 0
 let currentOperator = ""
-let operatorRuleCheck = false
-
 numbers.forEach((number) => {
   number.addEventListener('click', () => {
       updateDisplay(number);
@@ -64,9 +62,6 @@ function updateDisplayOperator(operator) {
             currentOperator = operator;
             equation.push(operator)
             bottomDisplay.textContent += ` ${operator} `
-            if (isOperatorRule(operator)) {
-                operatorRuleCheck = true
-            } 
         }
     }
 }
@@ -86,7 +81,6 @@ function clearDisplay() {
     topDisplay.textContent = bottomDisplay.textContent
     bottomDisplay.textContent = ""
     equation = []
-    operatorRuleCheck = false
     currentOperator = ""
     currentNumber = ""
     operatorCount = 0
@@ -100,12 +94,12 @@ function displayResult() {
             bottomDisplay.textContent = calculate()
         }
     }
+
 }
 
 function calculate() {
-    while (equation.length !== 1) {
-        compute()
-    }
+    compute()
+    compute()
     return equation[0]
 }
 
@@ -128,28 +122,26 @@ function compute() {
     let firstNumber = Number(equation[operatorIndex - 1])
     let operator =  equation[operatorIndex]
     let secondNumber = Number(equation[operatorIndex + 1])
-
-    if (operatorRuleCheck) {
-        const computed = pairComputation(firstNumber, operator, secondNumber)
-        spliceExpression(operatorIndex, computed)
-    }else {
-        const computed = pairComputation(firstNumber, operator, secondNumber)
-        spliceExpression(operatorIndex, computed)
-    }
-}
-
-function spliceExpression(operatorIndex, computed) {
+    
+    const computed = pairComputation(firstNumber, operator, secondNumber)
     equation.splice(operatorIndex - 1, operatorIndex + 2, computed)
 }
 
 function getRuleIndex() {
-    let index = 0;
-    equation.forEach((n, currentIndex) => {
-        if (isOperatorRule(n)) {
-            index = currentIndex
-        }else if (isOperator(n)) {
-            index = currentIndex
+    let firstOperator = equation[1]
+    let secondOperator = equation[3]
+    
+    if (firstOperator) {
+        if (isOperator(firstOperator) && secondOperator) {
+            return 3
+        }else {
+            return 1
         }
-    })
-    return index
+    }else if (secondOperator) {
+        if (isOperator(secondOperator)) {
+            return 1
+        }else {
+            return 3
+        }
+    }
 }
